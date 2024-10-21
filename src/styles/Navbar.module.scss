@@ -10,7 +10,7 @@
         height: 100%;
     }
 
-    a{
+    a{  
         height: 100%;
         display: inline-flex;
         align-items: center;
@@ -24,6 +24,7 @@
         &:hover {
             background-color: black;
             color: white;
+            border-radius: 10px;
         }
     }
 }

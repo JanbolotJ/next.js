@@ -5,6 +5,7 @@ import React from 'react'
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../redux/store';
 import Head from 'next/head';
+import cls from "../../styles/Home.module.scss"
 
 export default function NewsDelails() {
     const router = useRouter();
@@ -18,9 +19,13 @@ export default function NewsDelails() {
         <title>{news.title} | Новости</title>
         <meta name='description' content={news.title}/>
       </Head>
-      <div>
-        <h1>{news.title}</h1>
-        <p>{news.content}</p>
+      <div className={cls.container}>
+        <div className={cls.grid}>
+          <div className={cls.border}>
+            <h1 className={cls.title}>{news.title}</h1>
+            <p className={cls.excerpt}>{news.content}</p>
+          </div>
+        </div>
       </div>
     </>
   )

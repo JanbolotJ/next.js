@@ -65,7 +65,7 @@ export default function Admin() {
         <ul className={cls.deleteList}>
             {newsList.map((news) => (
                 <li key={news.id} className={cls.deleteItem}>
-                    <div>
+                    <div className={cls.new}>
                         <h2 className={cls.dtitle}>{news.title}</h2>
                         <p className={cls.dcontent}>{news.content}</p>
                     </div>

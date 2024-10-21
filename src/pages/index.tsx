@@ -55,19 +55,19 @@ export default function Home({socials}: SocialsPage) {
 
   if(!mounted) return null;
   return (
-    <div className={cls.wrapper}>
+    <>
       <Head>
         <title>Новости | Мини-портал</title>
         <meta name='description' content='Последние новости и блоги'/>
       </Head>
       <div className={cls.container}>
-        <h1>Новости</h1>
+        <h1 className={cls.news}>Новости</h1>
         <div className={cls.grid}>
           {newsList.map((news: NewsItem) => (
             <div key={news.id} className={cls.border}>
               <h2 className={cls.title}>{news.title}</h2>
               <p className={cls.excerpt}>{news.excerpt}</p>
-              <Link href={`/news/${news.id}`}>
+              <Link href={`/news/${news.id}`} className={cls.link}>
                 Читать далее
               </Link>
             </div>
@@ -75,7 +75,7 @@ export default function Home({socials}: SocialsPage) {
         </div>
         <Socials socials={socials}/>
       </div>
-    </div>
+    </>
   )
 }
 

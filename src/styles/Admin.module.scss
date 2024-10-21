@@ -46,3 +46,46 @@
         }
     }
 }
+.deleteNews {
+    width: 70%;
+    margin:auto;
+    .deleteList {
+        .deleteItem {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+
+            .new {
+                
+                .dtitle {
+                    display: flex;
+                    justify-content: center;
+                }
+
+                .dcontent {
+                    background-color: white;
+                    margin: 20px auto;
+                    padding: 10px;
+                    word-wrap: break-word;
+                    white-space: normal;
+                    border-radius: 10px;
+                }
+            }
+
+            .deleteButton {
+                border-radius: 5px;
+                cursor: pointer;
+                text-decoration: none;
+                width: 70%;
+                padding: 10px 50px;
+                transition: .5s;
+
+                &:hover {
+                    scale: 1.2;
+                }
+            }
+        }
+    }
+}
