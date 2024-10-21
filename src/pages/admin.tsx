@@ -5,13 +5,14 @@ import {v4 as uuidv4} from 'uuid'
 import { addNews, deleteNews } from '../../redux/newsSlice';
 import Head from 'next/head';
 import { useSelector } from 'react-redux';
+import cls from "../styles/Admin.module.scss"
 
 export default function Admin() {
     const newsList = useSelector((state: RootState) => state.news.newsList)
     const dispatch = useDispatch<AppDispatch>();
-    const [title, setTitle] = useState('');
-    const [excerpt, setExcerpt] = useState('');
-    const [content, setContent] = useState('');
+    const [title, setTitle] = useState<string>('');
+    const [excerpt, setExcerpt] = useState<string>('');
+    const [content, setContent] = useState<string>('');
 
     const handleAddNews = () => {
         dispatch(
@@ -35,38 +36,40 @@ export default function Admin() {
       <Head>
         <title>Admin</title>
       </Head>
-      <div>
-        <h1>Добавить новость</h1>
-        <input 
-            type="text"
-            placeholder='Заголовок'
-            value={title}
-            onChange={(e) => setTitle(e.target.value)} 
-        />
-        <input 
-            type="text"
-            placeholder='Краткое описание'
-            value={excerpt}
-            onChange={(e) => setExcerpt(e.target.value)} 
-        />
-        <textarea 
-            placeholder='Контент'
-            value={content}
-            onChange={(e) => setContent(e.target.value)} 
-        />
-        <button onClick={handleAddNews} >
-            dobavit
+      <div className={cls.addNews}>
+        <h1 className={cls.addNew}>Добавить новость</h1>
+        <div className={cls.inputs}>
+            <input 
+                type="text"
+                placeholder='Заголовок'
+                value={title}
+                onChange={(e) => setTitle(e.target.value)} 
+            />
+            <input 
+                type="text"
+                placeholder='Краткое описание'
+                value={excerpt}
+                onChange={(e) => setExcerpt(e.target.value)} 
+            />
+            <textarea 
+                placeholder='Контент'
+                value={content}
+                onChange={(e) => setContent(e.target.value)} 
+            />
+        </div>
+        <button className={cls.addButton} onClick={handleAddNews} >
+            Добавить
         </button>
       </div>
-      <div>
-        <ul>
+      <div className={cls.deleteNews}>
+        <ul className={cls.deleteList}>
             {newsList.map((news) => (
-                <li key={news.id}>
+                <li key={news.id} className={cls.deleteItem}>
                     <div>
-                        <h2>{news.title}</h2>
-                        <p>{news.content}</p>
+                        <h2 className={cls.dtitle}>{news.title}</h2>
+                        <p className={cls.dcontent}>{news.content}</p>
                     </div>
-                    <button onClick={() => handleDeleteNews(news.id)}>delete</button>
+                    <button className={cls.deleteButton} onClick={() => handleDeleteNews(news.id)}>delete</button>
                 </li>
             ))}
         </ul>

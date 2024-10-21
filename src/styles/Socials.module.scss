@@ -1,0 +1,11 @@
+.socials {
+    display: flex;
+    margin-bottom: 0;
+    padding: 0;
+    list-style-type: none;
+    grid-auto-rows: auto 1fr auto;
+
+    li {
+        margin: 0 10px;
+    }
+}

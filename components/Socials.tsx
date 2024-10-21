@@ -1,6 +1,7 @@
 
 
 import React from 'react'
+import cls from "@/styles/Socials.module.scss"
 
 
 
@@ -16,14 +17,11 @@ interface SocialsPage {
 
 export default function Socials({socials}: SocialsPage) {
     if(!socials){
-        return null;
+        return <p>netu</p>;
     }
   return (
     <>
-      {/* <Head>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.0/css/all.css" />
-      </Head> */}
-      <ul>
+      <ul className={cls.socials}>
         {socials && socials.map(({ id, icon, path }) => (
           <li key={id}>
             <a href={path} target="_blank" rel="noopener noreferrer">
