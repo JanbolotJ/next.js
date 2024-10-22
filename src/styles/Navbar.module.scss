@@ -6,25 +6,80 @@
     justify-content: space-between;
     padding-top: 10px;
 
-    .link {
-        height: 100%;
+    .burger {
+        display: none;
+        cursor: pointer;
+
+        div {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 5px;
+            transition: all .3s ease;
+        }
+
+        .line1 {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+        .line2 {
+            opacity: 0;
+        }
+        .line3 {
+            transform: rotate(-45deg) translate(-5px, -6px);
+        }
+    }
+    .navLinks {
+        display: flex;
+        align-items: center;
+        color: yellow;
+        a{  
+            height: 100%;
+            padding: 0 30px;
+            text-transform: uppercase;
+            color: black;
+            text-decoration: none;
+            transition: .5s;
+    
+            &.active,
+            &:hover {
+                background-color: black;
+                color: white;
+                border-radius: 10px;
+            }
+        }
     }
 
-    a{  
-        height: 100%;
-        display: inline-flex;
-        align-items: center;
-        padding: 0 30px;
-        text-transform: uppercase;
-        color: black;
-        text-decoration: none;
-        transition: .5s;
+    @media (max-width: 700px) {
+    align-items: initial;
+        .burger {
+            display: block;
+            padding: 28px;
+        }
 
-        &.active,
-        &:hover {
-            background-color: black;
-            color: white;
-            border-radius: 10px;
+        .navLinks {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            width: 100%;
+            height: 100vh;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: transform .3s ease-in-out;
+            transform: translateX(100%);
+        }
+
+        .navActive {
+            top: 100%;
+            display: flex;
+            flex-direction: column;
+            transform: translateX(0);
+            align-items: flex-start;
+        }
+        a {
+            padding: 15px 0;
+            font-size: 1.2rem;
         }
     }
 }
